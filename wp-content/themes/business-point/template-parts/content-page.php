@@ -39,11 +39,17 @@
 
                         $action = '';
 
-                        $posted = array();
+                        $posted = array("amount" => "5000");
                         if(!empty($_POST)) {
                             //print_r($_POST);
                             foreach($_POST as $key => $value) {    
-                                $posted[$key] = $value; 
+                                if($key == "amount"){
+                                    $posted[$key] = "5000"; 
+                                }
+                                else{
+                                    $posted[$key] = $value; 
+
+                                }
                             }
                         }
 
@@ -96,11 +102,28 @@
 
                             <article class="article-section bg-white payment-article">
                                 <div class="text-wrap">
-                                    <h3 class="article-title">No Worries, Easy Payment</h3>
-                                    <p class="article-info text-center">The Easiest Way Of Payment By Paypal </p>
+                                    <h3 class="article-title">Get Ad Suite</h3>
+                                    <p class="article-info text-center">Be the part of online world, digital is the new trend so if you want to have a dose of digitalization then get Ad Suite suitable to you.</p>
                                 </div>
                                 <div class="img-wrap text-center">
-                                    <img src="/wp-content/uploads/2018/05/payment.png" / class="payment-image"> </div>
+                                    <img src="/wp-content/uploads/2018/05/payment.png" / class="payment-image"> 
+                                </div>
+                            </article>
+                            <article class="article-section bg-primary buy-btn-wrap">
+
+                                <div class="img-wrap text-center">
+                                    <img class="b-now-btn" src="/wp-content/uploads/2018/06/buynow.png" alt="buy now">
+                                    <!-- <span id="buy-now-btn">
+                                        <span>Buy now</span>
+                                        <span>just at <i class="fa fa-inr" aria-hidden="true"></i> 5000</span>
+                                    </span> -->
+                                </div>
+                                <div class="text-wrap">
+                                    <h3 class="article-title text-white text-center">Buy Ad Suite</h3>
+                                    <p class="article-info text-center text-white">
+                                        Now buy traffic at best price for the worldwide geography of different categories (e.g Movies, Comedy, Sports, kids etc) on CPM, CPC basis 
+                                    </p>
+                                </div>
                             </article>
                             <article class="payment-wrapper">
                                 <header class="payment-header">
@@ -174,8 +197,8 @@
                                         <input type="hidden" name="service_provider" value="payu_paisa" size="64" />
                                         <input type="hidden" name="productinfo" value="MobPro Digital Services LLP Online Payment"  />
                                         <section class="form-group">
-                                            <label for="amount">Amount *</label>
-                                            <input required class="form-control" type="text" name="amount" id="amount" value="<?php echo (empty($posted['amount'])) ? '' : $posted['amount'] ?>" />
+                                            <label for="amount">Amount * (INR)</label>
+                                           <input readonly class="form-control" type="text" name="amount" id="amount" value="<?php echo (empty($posted['amount'])) ? '' : $posted['amount'] ?>" />
                                         </section>
                                         <section class="form-group">
                                             <label for="firstname">First Name *</label>
